@@ -1,0 +1,19 @@
+<launch>
+  <node name="NoiseGenerator" pkg="listener" type="NoiseGenerator.py"
+	args="/Romulo/sensors/humidity 100"/>
+
+  <node name="NoiseGeneratorIncremental" pkg="listener"
+	type="NoiseGeneratorIncremental.py"
+	args="/Romulo/sensors/humidity 0.1 250"/>
+  
+   <node name="KalmanFilterWithNoise" pkg="listener" type="KalmanFilter.py"
+	 args="/Romulo/sensors/humidity_WithNoise"/>
+
+   <node name="KalmanFilterWithIncrementalNoise" pkg="listener"
+	 type="KalmanFilter.py"
+	 args="/Romulo/sensors/humidity_WithIncrementalNoise"/>
+   
+   <node name="KalmanFilter" pkg="listener" type="KalmanFilter.py"
+	 args="/Romulo/sensors/humidity"/>
+
+</launch>
